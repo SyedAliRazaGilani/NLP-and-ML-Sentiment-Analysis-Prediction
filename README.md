@@ -111,7 +111,7 @@ From `requirements.txt` and code:
 ### 1. Environment
 
 ```bash
-git clone https://github.com/Surbhit01/Amazon-Alexa-Reviews.git
+git clone https://github.com/SyedAliRazaGilani/NLP-and-ML-Sentiment-Analysis-Prediction.git
 conda create -n amazonreview python=3.10
 conda activate amazonreview
 pip install -r requirements.txt
