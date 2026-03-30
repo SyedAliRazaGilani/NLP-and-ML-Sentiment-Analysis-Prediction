@@ -8,5 +8,6 @@ nltk
 xgboost
 streamlit
 flask
+gunicorn
 requests
 python-dotenv
