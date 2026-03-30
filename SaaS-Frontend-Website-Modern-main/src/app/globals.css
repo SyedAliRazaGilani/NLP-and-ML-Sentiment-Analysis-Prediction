@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@property --glow-a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight;
+  }
+
+  .btn-primary {
+    @apply bg-black text-white;
+  }
+
+  .btn-text {
+    @apply text-black bg-transparent;
+  }
+
+  .logo-ticker-image {
+    @apply h-8 w-auto;
+  }
+
+  .tag {
+    @apply text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight;
+  }
+
+  .section-title {
+    @apply text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text;
+  }
+
+  .section-description {
+    @apply text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E];
+  }
+
+  .section-heading {
+    @apply max-w-[540px] mx-auto;
+  }
+
+  .card {
+    @apply p-10 border border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full;
+  }
+
+  .panel {
+    @apply p-10 border border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] w-full;
+  }
+
+  .glow-border {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .glow-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: 1.5rem; /* match rounded-3xl */
+    background: repeating-conic-gradient(
+      from var(--glow-a),
+      #0f0,
+      #ff0,
+      #0ff,
+      #f0f,
+      #0ff
+    );
+    animation: glow-rotating 5s linear infinite;
+    z-index: -2;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+  }
+
+  .glow-border::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: 1.5rem; /* match rounded-3xl */
+    background: repeating-conic-gradient(
+      from var(--glow-a),
+      #0f0,
+      #ff0,
+      #0ff,
+      #f0f,
+      #0ff
+    );
+    animation: glow-rotating 5s linear infinite;
+    filter: blur(22px);
+    opacity: 0.35;
+    z-index: -3;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glow-border::before,
+    .glow-border::after {
+      animation: none;
+    }
+  }
+}
+
+@keyframes glow-rotating {
+  0% {
+    --glow-a: 0deg;
+  }
+  100% {
+    --glow-a: 360deg;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-25% - 1rem));
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
