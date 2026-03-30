@@ -3,6 +3,8 @@
 **Author:** Ali Gilani
 ---
 
+![ML & NLP Pipeline](SaaS-Frontend-Website-Modern-main/src/assets/pipeline-phd.png)
+
 ## 📝 Summary
 
 This **ML and NLP** repo predicts **positive vs. negative** sentiment for **Amazon Alexa** reviews using the **`feedback`** label. A **Jupyter notebook** runs **EDA**, text preprocessing, and **Random Forest / XGBoost / Decision Tree** training on a **70/30** train–test split (with **CV** and **grid search** where applicable); a **Flask** API and **web UI** expose predictions, with optional **Streamlit**. **Production** is **`XGBClassifier`** plus pickled **`CountVectorizer`** and **`MinMaxScaler`** so inference matches training.
@@ -76,6 +78,8 @@ Practical portfolio path from raw text to a working API, aimed at learners choos
 4. **CountVectorizer** (`max_features=2500` in the training notebook).
 5. **MinMaxScaler** `fit` on train / `transform` on test and at inference (matches saved `scaler.pkl`).
 
+![How it works (end-to-end flow)](SaaS-Frontend-Website-Modern-main/src/assets/how-it-works.png)
+
 ### Modelling (notebook)
 
 - **Split:** 70% train / 30% test (`random_state=15` in notebook).
@@ -144,6 +148,12 @@ python -m flask --app api.py run
 ```
 
 Open **`http://127.0.0.1:5000`** (port **5000**). Use **`GET /test`** to confirm the service is up.
+
+### 2.5 Next.js demo frontend (optional, portfolio UI)
+
+This repo also includes a Next.js landing page + demo UI under `SaaS-Frontend-Website-Modern-main/`. It calls the Flask API via same-origin Next routes that proxy to Flask using `FLASK_BASE_URL`.
+
+![Demo UI screenshot](SaaS-Frontend-Website-Modern-main/src/assets/demo.png)
 
 ### 3. Optional Streamlit UI
 
