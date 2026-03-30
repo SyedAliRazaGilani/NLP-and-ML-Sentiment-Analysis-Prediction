@@ -7,10 +7,10 @@
 
 <p align="center">
   <a href="https://nlp-and-ml-sentiment-analysis-prediction-itleygupq.vercel.app/">
-    <img alt="View Demo" src="https://img.shields.io/badge/View%20Demo-111827?style=for-the-badge&logo=vercel&logoColor=white" />
+    <img alt="View Demo" src="https://img.shields.io/badge/View%20Demo-2563EB?style=for-the-badge&logo=vercel&logoColor=white" />
   </a>
   <a href="https://github.com/SyedAliRazaGilani/NLP-and-ML-Sentiment-Analysis-Prediction">
-    <img alt="Star Repo" src="https://img.shields.io/badge/Star%20Repo-0B1220?style=for-the-badge&logo=github&logoColor=white" />
+    <img alt="Star Repo" src="https://img.shields.io/badge/Star%20Repo-E11D48?style=for-the-badge&logo=github&logoColor=white" />
   </a>
 </p>
 
