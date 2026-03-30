@@ -7,7 +7,7 @@ import uuid
 import random
 from io import BytesIO
 
-# nltk.download('stopwords')
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import matplotlib.pyplot as plt
@@ -22,6 +22,13 @@ _APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 _MODEL_DIR = os.path.join(_APP_ROOT, "Models")
 _LANDING_HTML = os.path.join(_APP_ROOT, "templates", "landing.html")
 _UI_BUILD = "sentiment-ui-2026-03-30"
+
+# Fresh servers (e.g. Render) have no NLTK corpora; download into the app dir (writable).
+_NLTK_DATA = os.path.join(_APP_ROOT, "nltk_data")
+os.makedirs(_NLTK_DATA, exist_ok=True)
+if _NLTK_DATA not in nltk.data.path:
+    nltk.data.path.insert(0, _NLTK_DATA)
+nltk.download("stopwords", download_dir=_NLTK_DATA, quiet=True)
 
 STOPWORDS = set(stopwords.words("english"))
 
