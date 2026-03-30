@@ -112,17 +112,35 @@ From `requirements.txt` and code:
 
 ```bash
 git clone https://github.com/SyedAliRazaGilani/NLP-and-ML-Sentiment-Analysis-Prediction.git
-conda create -n amazonreview python=3.10
-conda activate amazonreview
-pip install -r requirements.txt
+cd NLP-and-ML-Sentiment-Analysis-Prediction
 ```
 
-Ensure a `Models/` directory exists with `model_xgb.pkl`, `countVectorizer.pkl`, and `scaler.pkl` (train/save from **`Data Exploration & Modelling.ipynb`**, or extract from the supplied **`Sentiment-Analysis.zip`** if you use that bundle).
+**Python environment** (pick one):
+
+- **Conda:** `conda create -n amazonreview python=3.10` → `conda activate amazonreview`
+- **venv (no Conda):** `python -m venv .venv` → activate (e.g. Windows: `.venv\Scripts\activate`)
+
+Then:
+
+```bash
+pip install -r requirements.txt
+python -c "import nltk; nltk.download('stopwords')"
+```
+
+Ensure a `Models/` directory exists with `model_xgb.pkl`, `countVectorizer.pkl`, and `scaler.pkl` (train/save from **`Data Exploration & Modelling.ipynb`**, or use the files already in this repo / extract from **`Sentiment-Analysis.zip`** if needed).
 
 ### 2. Flask API (required for web UI and Streamlit)
 
+From the project root (so `Models/` resolves correctly):
+
 ```bash
 flask --app api.py run
+```
+
+If `flask` is not on your PATH:
+
+```bash
+python -m flask --app api.py run
 ```
 
 Open **`http://127.0.0.1:5000`** (port **5000**). Use **`GET /test`** to confirm the service is up.
@@ -151,6 +169,5 @@ Upload CSV must include a column exactly named **`Sentence`** (see `Data/Sentime
 4. Vectorize → scale → train/evaluate models; optional CV and grid search on Random Forest.
 5. Save **`Models/countVectorizer.pkl`**, **`Models/scaler.pkl`**, **`Models/model_xgb.pkl`** so `api.py` can load them.
 
----
 
 

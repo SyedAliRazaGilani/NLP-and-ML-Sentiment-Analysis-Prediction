@@ -33,5 +33,12 @@ if st.button("Predict"):
 
     else:
         response = requests.post(prediction_endpoint, json={"text": user_input})
-        response = response.json()
-        st.write(f"Predicted sentiment: {response['prediction']}")
+        data = response.json()
+        if "error" in data:
+            st.error(data["error"])
+        else:
+            st.metric("Positive tone (0–100)", f"{data.get('positive_tone_0_100', '—')}")
+            st.caption(f"{data.get('customer_tone', '')} · {data.get('tone_band', '')}")
+            st.caption(f"Confidence: **{data.get('confidence', '')}** · Class: **{data.get('prediction', '')}**")
+            if data.get("reliability_note"):
+                st.warning(data["reliability_note"])

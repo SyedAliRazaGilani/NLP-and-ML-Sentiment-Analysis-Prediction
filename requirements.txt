@@ -1,4 +1,5 @@
 numpy
+pandas
 matplotlib
 seaborn
 scikit-learn
@@ -7,3 +8,5 @@ nltk
 xgboost
 streamlit
 flask
+requests
+python-dotenv
