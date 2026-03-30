@@ -5,6 +5,9 @@
 
 ![ML & NLP Pipeline](SaaS-Frontend-Website-Modern-main/src/assets/pipeline-phd.png)
 
+- **View demo**: `https://nlp-and-ml-sentiment-analysis-prediction-itleygupq.vercel.app/`
+- **Star repo**: `https://github.com/SyedAliRazaGilani/NLP-and-ML-Sentiment-Analysis-Prediction`
+
 ## 📝 Summary
 
 This **ML and NLP** repo predicts **positive vs. negative** sentiment for **Amazon Alexa** reviews using the **`feedback`** label. A **Jupyter notebook** runs **EDA**, text preprocessing, and **Random Forest / XGBoost / Decision Tree** training on a **70/30** train–test split (with **CV** and **grid search** where applicable); a **Flask** API and **web UI** expose predictions, with optional **Streamlit**. **Production** is **`XGBClassifier`** plus pickled **`CountVectorizer`** and **`MinMaxScaler`** so inference matches training.
